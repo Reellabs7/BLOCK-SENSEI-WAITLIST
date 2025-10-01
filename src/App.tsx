@@ -28,10 +28,11 @@ function App() {
             </p>
           </div>
           <div className='flex flex-col justify-center w-full max-w-3xl'>
-            <form action=''>
+            <form action='http://app.proforms.top/f/pr762a57c' method='POST'>
               <div className='flex items-center bg-[#F4F4F4] mx-auto p-2 rounded-full w-full max-w-3xl'>
                 <input
                   type='email'
+                  id='email'
                   name='email'
                   placeholder='Your email address'
                   className='flex-1 bg-transparent px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 rounded-l-full outline-none text-sm sm:text-base md:text-lg'
