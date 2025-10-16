@@ -5,7 +5,7 @@ function App() {
         <div>BlockSensei Waitlist</div>
       </nav>
 
-      <div className="bg-[url('/src/assets/background.png')] bg-cover bg-center w-full h-full">
+      <div className="bg-[url('/assets/background.png')] bg-cover bg-center w-full h-full">
         <img src='' alt='' />
         <div className='flex flex-col justify-center items-center gap-12 mx-auto py-10 container'>
           <div>
@@ -46,11 +46,11 @@ function App() {
               </div>
             </form>
             <div className='flex justify-center gap-2 p-6'>
-              <img src='/src/assets/users.png' alt='users' />
+              <img src='/assets/users.png' alt='users' />
               <p className='text-[#707070]'>10+ early learners already in.</p>
             </div>
             <div className='flex justify-center'>
-              <img src='/src/assets/Young and happy-bro 1.png' alt='' />
+              <img src='/assets/Young and happy-bro 1.png' alt='' />
             </div>
           </div>
         </div>
