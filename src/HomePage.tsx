@@ -29,7 +29,12 @@ function HomePage() {
 
           <div className='flex flex-col justify-center mb-32 sm:mb-40 md:mb-60 w-full max-w-xl'>
             <div className='bg-white p-8 border-2 border-gray-300 border-dotted rounded-3xl'>
-              <form action='http://app.proforms.top/f/pr762a57c' method='POST'>
+              <form
+                action={`http://app.proforms.top/f/${
+                  import.meta.env.VITE_API_KEY
+                }`}
+                method='POST'
+              >
                 <div className='flex flex-col items-center space-y-4'>
                   <input
                     type='text'
