@@ -56,7 +56,11 @@ function HomePage() {
 
               <div className='flex justify-center items-center gap-2 mt-6'>
                 <div className='flex justify-center gap-2 p-6'>
-                  <img src='/users.png' alt='users' />
+                  <img
+                    src='/users.png'
+                    alt='users'
+                    className='object-contain'
+                  />
                   <p className='text-[#707070]'>
                     10+ early learners already in.
                   </p>
@@ -66,11 +70,11 @@ function HomePage() {
           </div>
 
           {/* Responsive Happy Bro Image */}
-          <div className='-bottom-[3rem] sm:-bottom-[4rem] md:-bottom-[6rem] -z-10 absolute flex justify-center px-4 w-full max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl'>
+          <div className='bottom-0 sm:-bottom-[4rem] md:-bottom-[6rem] -z-10 absolute flex justify-center px-4 w-full max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl'>
             <img
               src='/Young and happy-bro 1.svg'
               alt='Happy learner illustration'
-              className='w-full h-auto max-h-[200px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-contain'
+              className='w-full h-auto max-h-[500px] sm:max-h-[600px] md:max-h-[700px] lg:max-h-[800px] object-contain'
             />
           </div>
         </div>
