@@ -5,7 +5,7 @@ function App() {
         <div>BlockSensei Waitlist</div>
       </nav>
 
-      <div className="bg-[url('/assets/background.png')] bg-cover bg-center w-full h-full">
+      <div className="bg-[url('/background.png')] bg-cover bg-center w-full h-full">
         <img src='' alt='' />
         <div className='flex flex-col justify-center items-center gap-12 mx-auto py-10 container'>
           <div>
@@ -27,30 +27,50 @@ function App() {
               Be part of the first learners shaping this journey.
             </p>
           </div>
-          <div className='flex flex-col justify-center w-full max-w-3xl'>
-            <form action='http://app.proforms.top/f/pr762a57c' method='POST'>
-              <div className='flex items-center bg-[#F4F4F4] mx-auto p-2 rounded-full w-full max-w-3xl'>
-                <input
-                  type='email'
-                  id='email'
-                  name='email'
-                  placeholder='Your email address'
-                  className='flex-1 bg-transparent px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 rounded-l-full outline-none text-sm sm:text-base md:text-lg'
-                />
-                <button
-                  type='submit'
-                  className='bg-gradient-to-r from-[#BBE3FF] to-[#0096FF] hover:opacity-90 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-semibold text-white text-sm sm:text-base md:text-lg transition'
-                >
-                  Submit
-                </button>
+
+          <div className='flex flex-col justify-center w-full max-w-xl'>
+            <div className='bg-white p-8 border-2 border-gray-300 border-dotted rounded-3xl'>
+              <form action='http://app.proforms.top/f/pr762a57c' method='POST'>
+                <div className='flex flex-col items-center space-y-4'>
+                  <input
+                    type='text'
+                    id='name'
+                    name='name'
+                    placeholder='Your name'
+                    className='bg-gray-100 px-6 py-4 rounded-full outline-none focus:ring-2 focus:ring-blue-200 w-full text-base transition placeholder-gray-500'
+                  />
+                  <input
+                    type='email'
+                    id='email'
+                    name='email'
+                    placeholder='Your email address'
+                    className='bg-gray-100 px-6 py-4 rounded-full outline-none focus:ring-2 focus:ring-blue-200 w-full text-base transition placeholder-gray-500'
+                  />
+                  <button
+                    type='submit'
+                    className='bg-gradient-to-r from-sky-300 to-blue-500 hover:opacity-90 hover:shadow-lg px-6 py-4 rounded-full w-full font-medium text-white text-base transition-all'
+                  >
+                    Join Waitlist
+                  </button>
+                </div>
+              </form>
+
+              <div className='flex justify-center items-center gap-2 mt-6'>
+                <div className='flex justify-center gap-2 p-6'>
+                  <img src='/users.png' alt='users' />
+                  <p className='text-[#707070]'>
+                    10+ early learners already in.
+                  </p>
+                </div>
               </div>
-            </form>
-            <div className='flex justify-center gap-2 p-6'>
-              <img src='/assets/users.png' alt='users' />
-              <p className='text-[#707070]'>10+ early learners already in.</p>
             </div>
-            <div className='flex justify-center'>
-              <img src='/assets/Young and happy-bro 1.png' alt='' />
+
+            <div className='flex justify-center mt-8'>
+              <img
+                src='/Young and happy-bro 1.png'
+                alt=''
+                className='max-w-full h-auto'
+              />
             </div>
           </div>
         </div>
