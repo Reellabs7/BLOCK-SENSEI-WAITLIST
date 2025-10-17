@@ -1,4 +1,41 @@
+"use client";
+import React, { useState } from "react";
+
 function HomePage() {
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch(
+        `http://app.proforms.top/f/${import.meta.env.VITE_API_KEY}`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (res.ok) {
+        setMessage("✅ Successfully joined the waitlist!");
+        form.reset();
+      } else {
+        setMessage("❌ Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      setMessage("⚠️ Network error. Please check your connection.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
       <nav className='flex justify-center items-center py-10 border-b border-black/30'>
@@ -29,18 +66,14 @@ function HomePage() {
 
           <div className='flex flex-col justify-center mb-32 sm:mb-40 md:mb-60 w-full max-w-xl'>
             <div className='bg-white p-8 border-2 border-gray-300 border-dotted rounded-3xl'>
-              <form
-                action={`http://app.proforms.top/f/${
-                  import.meta.env.VITE_API_KEY
-                }`}
-                method='POST'
-              >
+              <form onSubmit={handleSubmit}>
                 <div className='flex flex-col items-center space-y-4'>
                   <input
                     type='text'
                     id='name'
                     name='name'
                     placeholder='Your name'
+                    required
                     className='bg-gray-100 px-6 py-4 rounded-full outline-none focus:ring-2 focus:ring-blue-200 w-full text-base transition placeholder-gray-500'
                   />
                   <input
@@ -48,16 +81,26 @@ function HomePage() {
                     id='email'
                     name='email'
                     placeholder='Your email address'
+                    required
                     className='bg-gray-100 px-6 py-4 rounded-full outline-none focus:ring-2 focus:ring-blue-200 w-full text-base transition placeholder-gray-500'
                   />
                   <button
                     type='submit'
-                    className='bg-gradient-to-r from-sky-300 to-blue-500 hover:opacity-90 hover:shadow-lg px-6 py-4 rounded-full w-full font-medium text-white text-base transition-all'
+                    disabled={loading}
+                    className={`bg-gradient-to-r from-sky-300 to-blue-500 hover:opacity-90 hover:shadow-lg px-6 py-4 rounded-full w-full font-medium text-white text-base transition-all ${
+                      loading ? "opacity-70 cursor-not-allowed" : ""
+                    }`}
                   >
-                    Join Waitlist
+                    {loading ? "Joining..." : "Join Waitlist"}
                   </button>
                 </div>
               </form>
+
+              {message && (
+                <p className='mt-4 text-gray-600 text-sm text-center'>
+                  {message}
+                </p>
+              )}
 
               <div className='flex justify-center items-center gap-2 mt-6'>
                 <div className='flex justify-center gap-2 p-6'>
@@ -84,6 +127,7 @@ function HomePage() {
           </div>
         </div>
       </div>
+
       <footer className='bg-black text-white'>
         <div className='z-10 relative flex flex-col justify-center items-center gap-5 mx-auto px-6 py-16 max-w-7xl text-center container'>
           <h2 className='mb-4 font-semibold text-3xl md:text-5xl'>
